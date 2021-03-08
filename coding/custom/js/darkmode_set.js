@@ -61,6 +61,13 @@ $(window).load(function () {
                 $.message({message: "已为您自动启用白天模式", autoHide: true, time: 3000});
             }
         }else{
+            if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                //深色模式
+                switchMode("dark");
+            } else {
+                //浅色模式
+                switchMode("light");
+            }
             let listeners={
                 dark:(mediaQueryList )=>{
                     if(mediaQueryList.matches){
@@ -86,5 +93,6 @@ $(window).load(function () {
             switchMode("light");
         }
     }
+    checkMode();
 });
 
