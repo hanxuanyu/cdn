@@ -6,6 +6,7 @@ var mode_start_time = 18;
 var mode_end_time = 6;
 
 function switchMode(mode) {
+    // 计算Cookie失效时间
     let time = new Date();
     let hour = time.getHours();
     let expire = new Date();
@@ -64,21 +65,23 @@ $(window).load(function () {
             if(window.matchMedia('(prefers-color-scheme: dark)').matches){
                 //深色模式
                 switchMode("dark");
+                $.message({message: "根据您的系统设置，已为您自动启用夜间模式", autoHide: true, time: 5000});
             } else {
                 //浅色模式
                 switchMode("light");
+                $.message({message: "根据您的系统设置，已为您自动启用白天模式", autoHide: true, time: 5000});
             }
             let listeners={
                 dark:(mediaQueryList )=>{
                     if(mediaQueryList.matches){
                         switchMode("dark");
-                        $.message({message: "已为您自动启用夜间模式", autoHide: true, time: 5000});
+                        $.message({message: "检测到系统设置改变，已为您自动启用夜间模式", autoHide: true, time: 5000});
                     }
                 },
                 light:(mediaQueryList)=>{
                     if(mediaQueryList.matches){
                         switchMode("light");
-                        $.message({message: "已为您自动启用白天模式", autoHide: true, time: 5000});
+                        $.message({message: "检测到系统设置改变，已为您自动启用白天模式", autoHide: true, time: 5000});
                     }
                 }
             }
