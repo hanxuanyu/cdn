@@ -21,10 +21,12 @@ function switchMode(mode) {
     if (mode.data === "auto") {
         if ("light" === handsome_UI.mode) {
             handsome_UI.dark_mode();
+            $("head > meta[name='theme-color']").attr('content','#212121')
             Cookies.set('is_dark_mode', 'true', {expires: expire});
         } else if ("dark" === handsome_UI.mode) {
-            Cookies.set('is_dark_mode', 'false', {expires: expire});
+            $("head > meta[name='theme-color']").attr('content','#f9f9f9')
             handsome_UI.light_mode();
+            Cookies.set('is_dark_mode', 'false', {expires: expire});
         }
     } else {
         if (mode === "dark") {
