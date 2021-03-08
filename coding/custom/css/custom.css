@@ -55,3 +55,7 @@ html.theme-dark .badge {
     background: #000;
     color: #fff;
 }
+#handsome_global_player > div > div.aplayer-body > div.aplayer-info > div.aplayer-lrc{
+    text-shadow: none;
+    bottom:60px;
+}
