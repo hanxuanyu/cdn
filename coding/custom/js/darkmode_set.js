@@ -30,8 +30,10 @@ function switchMode(mode) {
         }
     } else {
         if (mode === "dark") {
+            $("head > meta[name='theme-color']").attr('content','#f9f9f9')
             handsome_UI.dark_mode();
         } else {
+            $("head > meta[name='theme-color']").attr('content','#212121')
             handsome_UI.light_mode();
         }
     }
